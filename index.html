@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <title>LilProject</title>
+</head>
+<body>
+    <header>
+        <h1>LilProject</h1>
+        <nav>
+            <a href="#finance">Finance</a>
+            <a href="#todo">To-do</a>
+            <a href="#shoplist">Shoplist</a>
+            <a href="#calendar">Calendar</a>
+            <a href="#dates">Dates</a>
+            <a href="#weather">Weather</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="finance">
+            <h2>Finance</h2>
+            <p class="empty">Nothing here yet. Next: connect your CSV script.</p>
+        </section>
+
+        <section id="todo">
+            <h2>To-do</h2>
+            <p class="empty">Nothing here yet.</p>
+        </section>
+
+        <section id="shoplist">
+            <h2>Shoplist</h2>
+            <p class="empty">Nothing here yet.</p>
+        </section>
+
+        <section id="calendar">
+            <h2>Calendar</h2>
+            <div class="month">
+                <button id="prev" aria-label="Previous month">&#10094;</button>
+                <h3 id="month-title"></h3>
+                <button id="next" aria-label="Next month">&#10095;</button>
+            </div>
+            <ul class="weekdays">
+                <li>Mon</li><li>Tue</li><li>Wed</li><li>Thu</li><li>Fri</li><li>Sat</li><li>Sun</li>
+            </ul>
+            <ul class="days" id="days"></ul>
+        </section>
+
+        <section id="dates">
+            <h2>Dates</h2>
+            <p class="empty">Nothing here yet.</p>
+        </section>
+
+        <section id="weather">
+            <h2>Weather</h2>
+            <iframe
+                title="Windy weather map"
+                src="https://embed.windy.com/embed2.html?lat=50.10&lon=14.52&detailLat=50.10&detailLon=14.52&zoom=8&level=surface&overlay=temp&product=ecmwf&menu=&message=true&marker=true&calendar=now&type=map&location=coordinates&detail=true&metricWind=km%2Fh&metricTemp=%C2%B0C"
+                loading="lazy">
+            </iframe>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
