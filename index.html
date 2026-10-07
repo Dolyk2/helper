@@ -3,15 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
     <link rel="stylesheet" href="style.css">
-    <title>LilProject</title>
+      <!-- Browser tab icon (favicon) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <!-- iPhone "Add to Home Screen" icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <!-- Optional: name shown under the icon on iPhone -->
+    <meta name="apple-mobile-web-app-title" content="My Site">
+    <meta name="theme-color" content="#ffffff">
+    <title>Pomocníček</title>
 </head>
 <body>
-    <header>
-        <h1>LilProject</h1>
-        <nav>
+    <header class="topbar">
+        <a class="brand" href="#top">Pomocníček</a>
+        <nav aria-label="Sections">
             <a href="#finance">Finance</a>
-            <a href="#todo">To-do</a>
+            <a href="#todolist">To-do</a>
             <a href="#shoplist">Shoplist</a>
             <a href="#calendar">Calendar</a>
             <a href="#dates">Dates</a>
@@ -19,28 +31,43 @@
         </nav>
     </header>
 
-    <main>
-        <section id="finance">
+    <main id="top">
+        <section class="hero wide" aria-live="polite">
+            <p class="hero-date" id="hero-date"></p>
+            <p class="hero-next" id="hero-next"></p>
+        </section>
+
+        <section class="card wide" id="finance">
             <h2>Finance</h2>
-            <p class="empty">Nothing here yet. Next: connect your CSV script.</p>
+            <p class="empty">CSV import is not connected yet. Your finance overview will appear here.</p>
         </section>
 
-        <section id="todo">
-            <h2>To-do</h2>
-            <p class="empty">Nothing here yet.</p>
+        <section class="card" id="todolist">
+            <h2>To-do <small class="count" id="todo-count"></small></h2>
+            <form class="add" id="todo-form">
+                <input id="todo-input" type="text" placeholder="Add a task" aria-label="New task" autocomplete="off">
+                <button type="submit">Add</button>
+            </form>
+            <ul class="items" id="todo-items"></ul>
+            <p class="empty" id="todo-empty">Everything done.</p>
         </section>
 
-        <section id="shoplist">
-            <h2>Shoplist</h2>
-            <p class="empty">Nothing here yet.</p>
+        <section class="card" id="shoplist">
+            <h2>Shoplist <small class="count" id="shop-count"></small></h2>
+            <form class="add" id="shop-form">
+                <input id="shop-input" type="text" placeholder="Add an item" aria-label="New shopping item" autocomplete="off">
+                <button type="submit">Add</button>
+            </form>
+            <ul class="items" id="shop-items"></ul>
+            <p class="empty" id="shop-empty">Your list is empty.</p>
         </section>
 
-        <section id="calendar">
+        <section class="card" id="calendar">
             <h2>Calendar</h2>
             <div class="month">
-                <button id="prev" aria-label="Previous month">&#10094;</button>
+                <button id="prev" type="button" aria-label="Previous month">&#10094;</button>
                 <h3 id="month-title"></h3>
-                <button id="next" aria-label="Next month">&#10095;</button>
+                <button id="next" type="button" aria-label="Next month">&#10095;</button>
             </div>
             <ul class="weekdays">
                 <li>Mon</li><li>Tue</li><li>Wed</li><li>Thu</li><li>Fri</li><li>Sat</li><li>Sun</li>
@@ -48,12 +75,19 @@
             <ul class="days" id="days"></ul>
         </section>
 
-        <section id="dates">
+        <section class="card" id="dates">
             <h2>Dates</h2>
-            <p class="empty">Nothing here yet.</p>
+            <form class="add wrap" id="dates-form">
+                <input id="dates-title" type="text" placeholder="What is it?" aria-label="Date title" autocomplete="off">
+                <input id="dates-date" type="date" aria-label="Date" required>
+                <label class="yearly"><input id="dates-yearly" type="checkbox"> Every year</label>
+                <button type="submit">Add</button>
+            </form>
+            <ul class="items" id="dates-items"></ul>
+            <p class="empty" id="dates-empty">No dates saved yet.</p>
         </section>
 
-        <section id="weather">
+        <section class="card wide" id="weather">
             <h2>Weather</h2>
             <iframe
                 title="Windy weather map"
